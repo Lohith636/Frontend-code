@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <h1> DOM Methods</h1>
+    <p>getElementsByName</p>
+    <p>getElementsByTagName</p>
+    <p>getElementsByClassName</p>
+    <p>getElementById</p>
+    <h4>Hello</h4>
+    <h4>Thank you</h4>
+    <input type="text" placeholder="Enter your fav hero" name="hero">
+    <p> Value Display here</p>
+    <button onclick="changeColors()">Click me to change text color</button>
+
+    <script>
+        p =  document.querySelectorAll("h4");
+        p.forEach(p => {
+            p.style.backgroundColor = "Black";
+            p.style.color = "white";
+        });
+
+
+        document.querySelector("h1").innerHTML = "<h3><i>DOM Methods in JavaScript</i></h3>";
+        document.querySelector("button").textContent = "Click me";
+        document.getElementsByTagName("p")[0].style.color = "red";
+
+     let bt = document.getElementsByClassName("bluetext")
+     for(let i=0; i<=bt.length; i++) {
+            bt[i].style.color = "blue";
+            bt[i].style.backgroundColor = "lightblue";
+        }
+     
+     function changeColors() {
+        document.getElementsByName("hero")[0].value = "Superman";
+        document.getElementsByName("hero")[0].style.color = "blue";
+
+        
+        let paras = document.getElementsByTagName("p");
+        for(let i=0; i<paras.length; i++) {
+            paras[i].style.color = "blue";
+            paras[i].style.backgroundColor = "lightblue";
+        }
+     }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+//function overloading - function with same name but different parameters
+
+function add() {
+    console.log(10 + 10); //0 paramerter
+}
+
+function add(a) {
+    console.log(a + 10);  //1 paramerter
+}
+function add(a, b) {
+    console.log(a + b);  //2 parameters
+}
+
+add() // 20
+add(10) // 20
+add(5, 10) // 15

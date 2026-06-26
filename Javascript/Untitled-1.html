@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise Card</title>
+
+<style>
+    body{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background:#f5f5f5;
+        font-family:Arial,sans-serif;
+    }
+
+    .card{
+        width:350px;
+        height:450px;
+        perspective:1000px;
+    }
+
+    .card-inner{
+        width:100%;
+        height:100%;
+        position:relative;
+        transform-style:preserve-3d;
+        transition:transform 1s;
+    }
+
+    .card.open .card-inner{
+        transform:rotateY(180deg);
+    }
+
+    .front, .inside{
+        position:absolute;
+        width:100%;
+        height:100%;
+        backface-visibility:hidden;
+        border-radius:15px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        padding:20px;
+        box-sizing:border-box;
+    }
+
+    .front{
+        background:#ff6b81;
+        color:white;
+    }
+
+    .inside{
+        background:white;
+        color:#333;
+        transform:rotateY(180deg);
+        text-align:center;
+    }
+
+    button{
+        margin-top:20px;
+        padding:10px 20px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        font-size:16px;
+        background:#ff4757;
+        color:white;
+    }
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+    <div class="card-inner">
+
+        <div class="front">
+            <h1>🎁 Surprise 🎁</h1>
+            <p>Do Not Open...</p>
+            <p>(Unless It's Your Birthday 😜)</p>
+            <button onclick="openCard()">Open Me</button>
+        </div>
+
+        <div class="inside">
+            <h2>🎉 Happy Birthday to bestest Friend of mine! 🎉</h2>
+            <p>
+                This gift is a small token of appreciation for
+                an amazing friend like you.
+                Thank you for being an incredible and never replacable man of life.
+            </p>
+            <p>
+                May your life be filled with happiness,
+                success, and endless smiles.
+            </p>
+            <h3>❤️ Enjoy Your Special Day ❤️</h3>
+            <button onclick="closeCard()">Close Card</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function openCard(){
+    document.getElementById("card").classList.add("open");
+}
+
+function closeCard(){
+    document.getElementById("card").classList.remove("open");
+}
+</script>
+
+</body>
+</html>

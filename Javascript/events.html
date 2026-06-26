@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        body {
+            height: 100vh;
+        }
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+
+</style>
+
+</head>
+<body>
+    <h2>Mouse events</h2>
+    <br>
+    <div id="myDiv"></div>
+    <input type=""text>
+    <form>
+        <label>Enter name:</label>
+        <input type = "text" id="name">
+        <br>
+        <br>
+        <button type="submit">Submit</button>   
+    </form>
+
+
+    <script>
+        //form events
+        document.querySelector("form").addEventListener("submit" , (e) => {
+            e.preventDefault();
+        alert("Form submitted successfully");
+        });
+
+        document.querySelector("#myInput").addEventListener("focus" , () => {
+            console.log("Input field is focused");
+        });
+         document.querySelector("#myInput").addEventListener("blur" , () => {
+            console.log("Input field is blurred");
+        });
+            document.querySelector("#myInput").addEventListener("change" , () => {
+                console.log("Input field value changed");
+            });
+    
+            document.querySelector("#name").addEventListener("input" , (e) => {
+                console.log("Current value: " , e.target.value);
+            });
+
+
+
+
+        // Mouse events
+       let box= document.getElementById("myDiv");
+       box.addEventListener("click" , () => {
+        box.style.backgroundColor = "lightcoral";
+       });
+       box.addEventListener("dblclick" , () => {
+        box.style.backgroundColor = "Yellow";
+       box.innerText = "User dbl clicked";
+       });
+       box.addEventListener("mouseover" , () => {
+        box.style.backgroundColor = "blue";
+       });
+        box.addEventListener("mouseout" , () => {
+        box.style.backgroundColor = "lightgray";
+       });
+       box.addEventListener("mousemove" , (e) => {
+       box.innerText = `X value: ${e.offsetX} and Y value: ${e.offsetY}`;
+       });
+
+
+
+       // Keyboard events
+      let i =  document.querySelector("input");
+       i.addEventListener("keydown" , (event) => {
+       console.log("The key pressed is" , event.key);
+       })
+         i.addEventListener("keyup" , (event) => {
+       console.log("The key release is" , event.key);
+       })
+       i.addEventListener("keypress" , (event) => {
+       const pattern = /[a-zA-Z0-9]/;
+
+       if (pattern.test(event.key)) {
+           event.preventDefault();
+       }
+       })
+
+       //Window events
+       window.addEventListener("DOMContentLoaded", ()=> {
+        alert("Content loaded successfully!");
+       })
+
+       window.addEventListener("resize", () => {
+        alert("Window resized");
+       })
+
+       window.addEventListener("scroll", () => {
+        console.log("Window scrolled", window.scrollY);
+       })
+    
+    </script>
+</body>
+</html>
